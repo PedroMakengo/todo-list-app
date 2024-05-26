@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { styles } from './styles'
 import { Header } from '@/components/header'
 import { MaterialIcons } from '@expo/vector-icons'
+import { Tasks } from '@/components/tasks'
 
 export function Index() {
   const [newTask, setNewTask] = useState('')
@@ -28,6 +29,8 @@ export function Index() {
           <MaterialIcons name="add" size={24} color="#ccc" />
         </TouchableOpacity>
       </View>
+
+      <Tasks />
     </SafeAreaView>
   )
 }
