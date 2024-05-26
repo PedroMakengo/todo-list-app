@@ -1,8 +1,15 @@
-import { View, SafeAreaView, Text, TextInput } from 'react-native'
+import {
+  View,
+  SafeAreaView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native'
 import { useState } from 'react'
 
 import { styles } from './styles'
 import { Header } from '@/components/header'
+import { MaterialIcons } from '@expo/vector-icons'
 
 export function Index() {
   const [newTask, setNewTask] = useState('')
@@ -17,6 +24,9 @@ export function Index() {
           onChangeText={setNewTask}
           value={newTask}
         />
+        <TouchableOpacity style={styles.button}>
+          <MaterialIcons name="add" size={24} color="#ccc" />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   )

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { theme } from '../../theme'
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,6 +12,19 @@ export const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 6,
   },
-  input: {},
+  input: {
+    flex: 1,
+    padding: 10,
+    fontSize: 14,
+    fontFamily: theme.fonts.family.regular,
+  },
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingRight: 8,
+  },
 })
