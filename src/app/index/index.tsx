@@ -14,6 +14,10 @@ import { Tasks } from '@/components/tasks'
 
 export function Index() {
   const [newTask, setNewTask] = useState('')
+
+  const tasks = {
+    completed: true,
+  }
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -30,7 +34,7 @@ export function Index() {
         </TouchableOpacity>
       </View>
 
-      <Tasks />
+      <Tasks task={tasks} />
     </SafeAreaView>
   )
 }
