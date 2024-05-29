@@ -2,60 +2,33 @@ import { Button, ScrollView, Text, View, TouchableOpacity } from 'react-native'
 import { styles } from './styles'
 import { MaterialIcons } from '@expo/vector-icons'
 
+interface Task {
+  text: string
+  completed: boolean
+}
 type Props = {
-  task: {
-    text: string
-    completed: boolean
-  }
+  tasks: Task[]
 }
 
-export function Tasks({ task }: Props) {
+export function Tasks({ tasks }: Props) {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <View style={styles.container}>
-        <Text style={[styles.textTask, task.completed && styles.completed]}>
-          Estudar
-        </Text>
+      {tasks.map((task, index) => (
+        <View style={styles.container} key={index}>
+          <Text style={[styles.textTask, task.completed && styles.completed]}>
+            {task.text}
+          </Text>
 
-        <View style={styles.content}>
-          <TouchableOpacity>
-            <MaterialIcons name="check" size={22} color="#ccc" />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <MaterialIcons name="delete" size={22} color="#ccc" />
-          </TouchableOpacity>
+          <View style={styles.content}>
+            <TouchableOpacity>
+              <MaterialIcons name="check" size={22} color="#ccc" />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <MaterialIcons name="delete" size={22} color="#ccc" />
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-
-      <View style={styles.container}>
-        <Text style={[styles.textTask, task.completed && styles.completed]}>
-          Estudar
-        </Text>
-
-        <View style={styles.content}>
-          <TouchableOpacity>
-            <MaterialIcons name="check" size={22} color="#ccc" />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <MaterialIcons name="delete" size={22} color="#ccc" />
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      <View style={styles.container}>
-        <Text style={[styles.textTask, task.completed && styles.completed]}>
-          Estudar
-        </Text>
-
-        <View style={styles.content}>
-          <TouchableOpacity>
-            <MaterialIcons name="check" size={22} color="#ccc" />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <MaterialIcons name="delete" size={22} color="#ccc" />
-          </TouchableOpacity>
-        </View>
-      </View>
+      ))}
     </ScrollView>
   )
 }

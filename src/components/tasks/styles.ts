@@ -23,5 +23,7 @@ export const styles = StyleSheet.create({
   textTask: {
     fontFamily: theme.fonts.family.regular,
   },
-  completed: {},
+  completed: {
+    textDecorationLine: 'line-through',
+  },
 })
