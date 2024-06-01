@@ -2,28 +2,26 @@ import { Button, ScrollView, Text, View, TouchableOpacity } from 'react-native'
 import { styles } from './styles'
 import { MaterialIcons } from '@expo/vector-icons'
 
-interface Task {
-  text: string
-  completed: boolean
-}
 type Props = {
-  tasks: Task[]
+  tasks: TasksProps[]
+  onDelete?: (id: number) => void
+  onCompleted?: () => void
 }
 
-export function Tasks({ tasks }: Props) {
+export function Tasks({ tasks, onDelete, onCompleted }: Props) {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       {tasks.map((task, index) => (
         <View style={styles.container} key={index}>
           <Text style={[styles.textTask, task.completed && styles.completed]}>
-            {task.text}
+            {task.task}
           </Text>
 
           <View style={styles.content}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => onDelete && onDelete(6)}>
               <MaterialIcons name="check" size={22} color="#ccc" />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onCompleted}>
               <MaterialIcons name="delete" size={22} color="#ccc" />
             </TouchableOpacity>
           </View>
