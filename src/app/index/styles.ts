@@ -27,4 +27,14 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingRight: 8,
   },
+  containerTarefas: {
+    textAlign: 'center',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textTarefa: {
+    fontFamily: theme.fonts.family.regular,
+    color: '#ccc',
+  },
 })

@@ -89,8 +89,8 @@ export function Index() {
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onCompleted={updateTask} onDelete={deleteTask} />
       ) : (
-        <View>
-          <Text>Não existe tarefa</Text>
+        <View style={styles.containerTarefas}>
+          <Text style={styles.textTarefa}>Não existe tarefa</Text>
         </View>
       )}
     </SafeAreaView>
