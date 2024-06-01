@@ -18,10 +18,12 @@ export function Tasks({ tasks, onDelete, onCompleted }: Props) {
           </Text>
 
           <View style={styles.content}>
-            <TouchableOpacity onPress={() => onDelete && onDelete(6)}>
+            <TouchableOpacity onPress={onCompleted}>
               <MaterialIcons name="check" size={22} color="#ccc" />
             </TouchableOpacity>
-            <TouchableOpacity onPress={onCompleted}>
+            <TouchableOpacity
+              onPress={() => onDelete && onDelete(Number(task.id))}
+            >
               <MaterialIcons name="delete" size={22} color="#ccc" />
             </TouchableOpacity>
           </View>

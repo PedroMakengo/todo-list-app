@@ -77,7 +77,13 @@ export function Index() {
         </TouchableOpacity>
       </View>
 
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} onDelete={deleteTask} />
+      ) : (
+        <View>
+          <Text>Não existe tarefa</Text>
+        </View>
+      )}
     </SafeAreaView>
   )
 }
