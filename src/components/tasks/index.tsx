@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 type Props = {
   tasks: TasksProps[]
   onDelete?: (id: number) => void
-  onCompleted?: () => void
+  onCompleted?: (id: number, completed: boolean) => void
 }
 
 export function Tasks({ tasks, onDelete, onCompleted }: Props) {
@@ -18,7 +18,11 @@ export function Tasks({ tasks, onDelete, onCompleted }: Props) {
           </Text>
 
           <View style={styles.content}>
-            <TouchableOpacity onPress={onCompleted}>
+            <TouchableOpacity
+              onPress={() =>
+                onCompleted && onCompleted(Number(task.id), !task.completed)
+              }
+            >
               <MaterialIcons name="check" size={22} color="#ccc" />
             </TouchableOpacity>
             <TouchableOpacity

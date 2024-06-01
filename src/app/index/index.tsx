@@ -46,10 +46,19 @@ export function Index() {
     const { error } = await supabase.from('tasks').delete().match({ id })
 
     if (error) {
-      await fetchTasks()
-      console.log('Bugou')
+      console.warn('Error')
     } else {
-      console.log('Não eliminou')
+      await fetchTasks()
+    }
+  }
+
+  const updateTask = async (id: number, completed: boolean) => {
+    const { error } = await supabase
+      .from('tasks')
+      .update({ completed })
+      .match({ id })
+
+    if (!error) {
       await fetchTasks()
     }
   }
@@ -78,7 +87,7 @@ export function Index() {
       </View>
 
       {tasks.length > 0 ? (
-        <Tasks tasks={tasks} onDelete={deleteTask} />
+        <Tasks tasks={tasks} onCompleted={updateTask} onDelete={deleteTask} />
       ) : (
         <View>
           <Text>Não existe tarefa</Text>
